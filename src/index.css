@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 
+#F0C459
+#F4D786
+#FFFFFF
+#040403 */
+@layer base {
+  button {
+    @apply border py-2 px-3 rounded-full;
+  }
+}
+
+body {
+  background-color: #ffffff;
+}
