@@ -1,42 +1,86 @@
-import React, { useState } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import React from "react";
+import { AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
+import { FaShoppingCart } from "react-icons/fa";
+import { TbTruckDelivery } from "react-icons/tb";
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
-
-  const handleNav = () => {
-    setNav(!nav);
-  };
-
   return (
-    <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto text-#040403-900 ">
-      <h1 className="w-full text-3xl font-bold text-#040403">Smoothies Inn</h1>
-      <ul className="hidden md:flex">
-        <li className="p-4">Home</li>
-        <li className="p-4">Menu</li>
-        <li className="p-4">About</li>
-        <li className="p-4">Contact</li>
-      </ul>
-      <div onClick={handleNav} className="block md:hidden">
-        {!nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
-      </div>
-      {/* <div
-        className={
-          !nav
-            ? "fixed left-0 top-0 w-[60%] border-r h-full border-r-gray-900 bg-yellow-600 ease-in-out duration-500"
-            : "fixed left-[-100%]"
-        }
-      >
-        <h1 className="w-full text-3xl font-bold text-#040403 m-4">
-          Smoothies Inn
+    <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
+      {/* Left side */}
+      <div className="flex items-center ">
+        <div className="cursor-pointer">
+          <AiOutlineMenu size={30} />
+        </div>
+        <h1 className="text-2xl sm:text-3xl lg-text-4xl px-2">
+          Smoothies <span className="font-bold">Inn</span>
         </h1>
-        <ul className="p-4 uppercase">
-          <li className="p-4 boreder-b border-gray-600  ">Home</li>
-          <li className="p-4 boreder-b border-gray-600 ">Menu</li>
-          <li className="p-4 boreder-b border-gray-600 ">About</li>
-          <li className="p-4">Contact</li>
-        </ul>
-      </div> */}
+        <div className="hidden lg:flex items-center bg-gray-200 rounded-full p-1 text-[14px]">
+          <p className="bg-black text-white rounded-full p-2">Delivery</p>
+          <p className="p-2">Pick Up</p>
+        </div>
+      </div>
+
+      {/* Search Input */}
+      <div className="bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]">
+        <AiOutlineSearch size={20} />
+        <input
+          className="bg-transparent p-2 focus:outline-none w-full"
+          type="text"
+          placeholder="search smoothies"
+        />
+      </div>
+      {/* Cart button */}
+      <button className="bg-black text-white hidden md:flex items-center py-2 rounded-full">
+        <FaShoppingCart size={20} className="mr-2" />
+        Cart
+      </button>
+
+      {/* mobile Menu */}
+      {/* overley */}
+      <div className="bg-black/80 fixed w-full h-screen z-10 top-0 left-0"></div>
+
+      {/* side drawer menu */}
+      <div className="fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300">
+        <AiOutlineClose
+          size={30}
+          className="absolute right-4 top-4 cursor-pointer"
+        />
+        <h2 className="text-2xl p-4">
+          Smoothies <span className="font-bold">Inn</span>
+        </h2>
+        <nav>
+          <ul className="flex flex-col p-4 text-gray-800">
+            <li className="text-xl py-4 flex">
+              <TbTruckDelivery size={25} className="mr-4" />
+              Orders
+            </li>
+            <li className="text-xl py-4 flex">
+              <TbTruckDelivery size={25} className="mr-4" />
+              Orders
+            </li>
+            <li className="text-xl py-4 flex">
+              <TbTruckDelivery size={25} className="mr-4" />
+              Orders
+            </li>
+            <li className="text-xl py-4 flex">
+              <TbTruckDelivery size={25} className="mr-4" />
+              Orders
+            </li>
+            <li className="text-xl py-4 flex">
+              <TbTruckDelivery size={25} className="mr-4" />
+              Orders
+            </li>
+            <li className="text-xl py-4 flex">
+              <TbTruckDelivery size={25} className="mr-4" />
+              Orders
+            </li>
+            <li className="text-xl py-4 flex">
+              <TbTruckDelivery size={25} className="mr-4" />
+              Orders
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 };
